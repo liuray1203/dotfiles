@@ -1,0 +1,143 @@
+[
+  {
+    "layer": "top",
+    "position": "top",
+    "height": 24,
+    "spacing": 5,
+
+    "modules-left": [
+      "custom/launcher",
+      "hyprland/window",
+      "custom/texttwo",
+      "custom/textthree",
+      "custom/textfour",
+      "custom/textfive"
+    ],
+
+    "modules-center": [
+      "clock"
+    ],
+
+    "modules-right": [
+      "temperature",
+      "cpu",
+      "memory",
+      "network",
+      "bluetooth",
+      "pulseaudio",
+      "battery",
+      "tray"
+    ],
+
+    "custom/launcher": {
+      "format": "",
+      "on-click": "hyprlauncher",
+      "tooltip": false
+    },
+
+    "hyprland/window": {
+      "format": "{class}",
+      "max-length": 20,
+      "rewrite": {
+        "^(?!.*\\S).*": "Finder"
+      }
+    },
+
+    "custom/texttwo": {
+      "exec": "echo 'File'",
+      "interval": 60,
+      "return-type": "plain",
+      "on-click": "nautilus"
+    },
+
+    "custom/textthree": {
+      "exec": "echo 'Edit'",
+      "interval": 60,
+      "return-type": "plain"
+    },
+
+    "custom/textfour": {
+      "exec": "echo 'View'",
+      "interval": 60,
+      "return-type": "plain"
+    },
+
+    "custom/textfive": {
+      "exec": "echo 'Help'",
+      "interval": 60,
+      "return-type": "plain"
+    },
+
+    "clock": {
+      "format": "{:%A %B %d  %H:%M}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "temperature": {
+      "critical-threshold": 80,
+      "format-critical": " {temperatureC}°C",
+      "format": " {temperatureC}°C",
+      "tooltip": false
+    },
+
+    "cpu": {
+      "format": " {usage}%",
+      "tooltip": false
+    },
+
+    "memory": {
+      "format": " {}%"
+    },
+
+    "network": {
+      "format-wifi": "{essid} ",
+      "format-ethernet": " {ifname}",
+      "tooltip-format": " {ifname} via {gwaddr}",
+      "format-linked": " {ifname} (No IP)",
+      "format-disconnected": "⚠ 未連線",
+      "format-alt": " {ifname}: {ipaddr}/{cidr}",
+      "on-click-right": "nm-connection-editor"
+    },
+
+    "bluetooth": {
+      "format": "󰂯",
+      "format-disabled": "󰂲",
+      "format-off": "󰂲",
+      "format-connected": "󰂱 {device_alias}",
+      "tooltip-format": "{controller_alias}\n{num_connections} connected",
+      "tooltip-format-connected": "{device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}",
+      "on-click": "blueman-manager"
+    },
+
+    "pulseaudio": {
+      "scroll-step": 5,
+      "format": "{icon} {volume}%",
+      "format-bluetooth": "󰂱 {icon} {volume}%",
+      "format-bluetooth-muted": "󰂱 󰝟",
+      "format-muted": "󰝟",
+      "format-icons": {
+        "headphone": "󰋋",
+        "headset": "󰋎",
+        "default": ["󰕿", "󰖀", "󰕾"]
+      },
+      "on-click": "pavucontrol"
+    },
+
+    "battery": {
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{icon} {capacity}%",
+      "format-charging": "󰂄 {capacity}%",
+      "format-plugged": "󰚥 {capacity}%",
+      "format-alt": "{icon} {time}",
+      "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "tray": {
+      "spacing": 10
+    }
+  },
+]
